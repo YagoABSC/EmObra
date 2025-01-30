@@ -1,0 +1,30 @@
+header{
+    padding: 15px 5%;
+    
+    & nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: auto;
+        width: 100%;
+       
+        
+        & h1{
+            margin: 0;
+        }
+
+        & .menu-header{
+            display: flex;
+            width: fit-content;
+            align-items: center;
+            gap: 20px;
+
+            & a{
+                // margin-left: 10px;
+                text-decoration: none;
+            }
+        }
+        
+    }
+}
+
