@@ -21,19 +21,22 @@ function Header() {
             <nav>
                 <h1>EmObra</h1>
                 {isMobile ? (
-                
+
                     <button className="btn-app">
                         <span >Baixar App</span>
-                        <IoMdCloudDownload  size={25} color="white"/>
-                        
+                        <IoMdCloudDownload size={25} color="white" />
+
                     </button>
-                    
+
                 ) : (
                     <div className="menu-header">
                         <a href="">Sobre nós</a>
-                        <a href="">Aplicativo</a>
                         <a href="">Parceiros</a>
                         <a href="">Contato</a>
+                        <button className="btn-app">
+                            <span >Baixar App</span>
+                            <IoMdCloudDownload size={25} color="white" />
+                        </button>
                     </div>
                 )}
             </nav>

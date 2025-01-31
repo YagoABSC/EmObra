@@ -19,6 +19,11 @@ header {
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
             transition: all 0.3s;
 
+            &:hover{
+                background-color: black;
+                transition: all 0.3s;
+            }
+
             & span {
                 font-size: 15px;
                 color: white;
@@ -33,11 +38,12 @@ header {
             display: flex;
             width: fit-content;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
 
             & a {
-                // margin-left: 10px;
                 text-decoration: none;
+                color: black;
+                font-weight: 700;
             }
         }
 
