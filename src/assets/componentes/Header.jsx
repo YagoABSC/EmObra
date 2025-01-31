@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import './Header.scss';
-import { FaAlignJustify } from "react-icons/fa6";
+import { IoMdCloudDownload } from "react-icons/io";
 
 function Header() {
 
@@ -22,7 +22,11 @@ function Header() {
                 <h1>EmObra</h1>
                 {isMobile ? (
                 
-                    <FaAlignJustify size={20} />
+                    <button className="btn-app">
+                        <span >Baixar App</span>
+                        <IoMdCloudDownload  size={25} color="white"/>
+                        
+                    </button>
                     
                 ) : (
                     <div className="menu-header">

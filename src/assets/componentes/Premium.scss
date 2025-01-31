@@ -1,0 +1,49 @@
+.vantagens-premium {
+  background-color: #020411;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  padding: 40px 5%;
+  margin: 50px 0;
+  gap: 40px 0;
+
+  h2 {
+    margin: 0;
+    width: 100%;
+    font-size: clamp(16px, 4vw, 30px);
+    text-align: center;
+  }
+}
+
+.vantagem-premium {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 20px;
+  width: 100%;
+
+  img {
+    width: 100%;
+    max-width: 50px;
+    height: 100%;
+  }
+
+}
+
+.explicacao-premium {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+
+  h4,
+  p {
+    margin: 0;
+    font-size: clamp(10px, 3vw, 20px);
+  }
+}

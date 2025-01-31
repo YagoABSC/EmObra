@@ -1,30 +1,45 @@
-header{
+header {
     padding: 15px 5%;
-    
-    & nav{
+
+    & nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: auto;
         width: 100%;
-       
-        
-        & h1{
+
+        & .btn-app {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            border: none;
+            background: #FE8813;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+
+            & span {
+                font-size: 15px;
+                color: white;
+            }
+        }
+
+        & h1 {
             margin: 0;
         }
 
-        & .menu-header{
+        & .menu-header {
             display: flex;
             width: fit-content;
             align-items: center;
             gap: 20px;
 
-            & a{
+            & a {
                 // margin-left: 10px;
                 text-decoration: none;
             }
         }
-        
+
     }
 }
-

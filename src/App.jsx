@@ -7,6 +7,8 @@ import Banner from './assets/componentes/Banner'
 import Sobre from './assets/componentes/Sobre'
 import Footer from './assets/componentes/Footer'
 import Lojas from './assets/componentes/Lojas'
+import Premium from './assets/componentes/Premium'
+import Instituicao from './assets/componentes/Instituicao'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,29 +19,11 @@ function App() {
       <main>
         <Banner />
         <Sobre />
+        <Premium/>
         <Lojas />
+        <Instituicao />
       </main>
       <Footer />
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
     </>
   )
 }

@@ -22,29 +22,29 @@ function Lojas() {
             <h2>Lojas Parceiras do EmObra.com</h2>
 
             <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
-        pagination={{
-          clickable: true,
-        }}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 15,
-          },
-          
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 50,
-          },
-          1444: {
-            slidesPerView: 4,
-            spaceBetween: 30,
-          },
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
+                slidesPerView={1}
+                spaceBetween={10}
+                pagination={{
+                    clickable: true,
+                }}
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 15,
+                    },
+
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                    1444: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+            >
                 {cards.map((card) => (
                     <SwiperSlide key={card.id}>
                         <article class="banner-loja-fundo">
