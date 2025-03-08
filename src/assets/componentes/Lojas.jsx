@@ -18,7 +18,7 @@ const cards = [
 
 function Lojas() {
     return (
-        <section class="banners-lojas-parceiros">
+        <section className="banners-lojas-parceiros">
             <h2>Lojas Parceiras do EmObra.com</h2>
 
             <Swiper
@@ -47,10 +47,10 @@ function Lojas() {
             >
                 {cards.map((card) => (
                     <SwiperSlide key={card.id}>
-                        <article class="banner-loja-fundo">
-                            <div class="banner-loja-parceira">
+                        <article className="banner-loja-fundo">
+                            <div className="banner-loja-parceira">
                                 <img src={fotoLoja} alt="Parceiro Padrão" />
-                                <div class="info-loja-parceira">
+                                <div className="info-loja-parceira">
                                     <h3>
                                         {card.nome}
                                     </h3>

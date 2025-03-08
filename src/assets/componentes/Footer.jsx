@@ -8,11 +8,11 @@ function Footer() {
     return (
         <footer>
             <h2>Contato</h2>
-            <div class="info-contato-footer">
+            <div className="info-contato-footer">
                 <p>(11) 8989898989</p>
                 <p>emobracom@gmail.com</p>
             </div>
-            <div class="redes-sociais-footer">
+            <div className="redes-sociais-footer">
 
                 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><AiFillInstagram className="redes-icons" /></a>
 
