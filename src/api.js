@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const API_URL = 'https://apiobra.vercel.app/'; 
-const API_URL = 'http://localhost:3000'; 
+const API_URL = 'https://apiobra.vercel.app'; 
+// const API_URL = 'http://localhost:3000'; 
 
 export const buscarPedreiros = async (tipoServicoId, cepContratante) => {
     try {
