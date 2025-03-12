@@ -25,12 +25,12 @@ const cards = [
 
 function Instituicao() {
     return (
-        <section class="instituicoes-parceiras">
-            <div class="chamada-institu-parceiras">
+        <section className="instituicoes-parceiras">
+            <div className="chamada-institu-parceiras">
                 <h2>O seu futuro faz parte da nossa obra!</h2>
                 <p>Conheça nossos parceiros que querem fazer parte dessa empreitada.</p>
             </div>
-            <div class="container-parceiros">
+            <div className="container-parceiros">
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={10}
@@ -57,15 +57,15 @@ function Instituicao() {
                 >
                     {cards.map((card) => (
                         <SwiperSlide key={card.id}>
-                            <div class="banner-institu-parceira">
-                                <div class="info-institu-parceira">
+                            <div className="banner-institu-parceira">
+                                <div className="info-institu-parceira">
                                     <h3>
                                         {card.nome}
                                     </h3>
                                     <p>
                                         {card.descricao}
                                     </p>
-                                    <a href={card.link} class="btn-institu" target="_blank"
+                                    <a href={card.link} className="btn-institu" target="_blank"
                                         rel="noopener noreferrer">Veja mais</a>
                                 </div>
                                 <img src={card.img}
