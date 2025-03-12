@@ -7,12 +7,12 @@ import 'swiper/css/pagination';
 
 import { Pagination } from 'swiper/modules';
 
-import parceiro1 from '../imgs-fixas/parceiro-belasartes.png';
-import parceiro2 from '../imgs-fixas/parceiro-faap.jpg';
-import parceiro3 from '../imgs-fixas/parceiro-fssp.jpg';
-import parceiro4 from '../imgs-fixas/parceiro-ic.jpeg';
-import parceiro5 from '../imgs-fixas/parceiro-poliusp.jpg';
-import parceiro6 from '../imgs-fixas/parceiro-senai.jpg';
+import parceiro1 from '/imgs-fixas/parceiro-belasartes.png';
+import parceiro2 from '/imgs-fixas/parceiro-faap.jpg';
+import parceiro3 from '/imgs-fixas/parceiro-fssp.jpg';
+import parceiro4 from '/imgs-fixas/parceiro-ic.jpeg';
+import parceiro5 from '/imgs-fixas/parceiro-poliusp.jpg';
+import parceiro6 from '/imgs-fixas/parceiro-senai.jpg';
 
 const cards = [
     { id: 1, nome: "Card 1", descricao: "Rua Endereço, nº 0", link: "www.google.com", img: parceiro1 },
