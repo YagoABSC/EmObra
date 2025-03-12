@@ -1,8 +1,8 @@
 import React from "react";
 import './Sobre.scss';
-import missaoImg from '../imgs-fixas/tijolo.png'
-import visaoImg from '../imgs-fixas/muro1.png'
-import valorImg from '../imgs-fixas/acordo.png'
+import missaoImg from '/imgs-fixas/tijolo.png'
+import visaoImg from '/imgs-fixas/muro1.png'
+import valorImg from '/imgs-fixas/acordo.png'
 
 function Sobre() {
     return (

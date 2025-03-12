@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaUserTie, FaMapMarkerAlt, FaShieldAlt, FaTools } from "react-icons/fa";
-import InputMask from "react-input-mask"; // Importando a biblioteca para máscara
+import InputMask from "react-input-mask"; 
 import { buscarPedreiros } from "../../api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -46,16 +46,19 @@ function Buscas() {
             <h1>Seu projeto merece os <span>melhores profissionais!<FaUserTie /></span></h1>
             <h2>
                 Encontre <span><FaTools /> pedreiros qualificados</span> perto de você e transforme sua obra em 
-                <span>realidade</span> com <span><FaShieldAlt /> segurança</span> e <span>eficiência</span>.
+                <span> realidade</span> com <span><FaShieldAlt /> segurança</span> e <span>eficiência</span>.
             </h2>
 
             <div className="busca-inputs">
-                <InputMask
-                    mask="99999-999"
-                    value={cep}
-                    onChange={(e) => setCep(e.target.value)}
-                    placeholder="Informe seu Cep"
-                />
+                <div className="buscador">
+                    <InputMask
+                        mask="99999-999"
+                        value={cep}
+                        onChange={(e) => setCep(e.target.value)}
+                        placeholder="Informe seu Cep"
+                    />
+                    <button onClick={handleBuscar}>Buscar Pedreiros</button>
+                </div>
                 <div className="tipo-servico">
                     {tiposServico.map((servico) => (
                         <button
@@ -72,7 +75,7 @@ function Buscas() {
                         </button>
                     ))}
                 </div>
-                <button onClick={handleBuscar}>Buscar Pedreiros</button>
+                
             </div>
 
             {erro && <p className="erro">{erro}</p>}

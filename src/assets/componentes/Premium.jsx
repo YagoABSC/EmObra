@@ -1,8 +1,8 @@
 import React from "react";
 import './Premium.scss'
-import alcance from '../imgs-fixas/alcance.png'
-import visibilidade from '../imgs-fixas/visibilidade.png'
-import notificacao from '../imgs-fixas/notificacao2.png'
+import alcance from '/imgs-fixas/alcance.png'
+import visibilidade from '/imgs-fixas/visibilidade.png'
+import notificacao from '/imgs-fixas/notificacao2.png'
 
 function Premium(){
     return(
