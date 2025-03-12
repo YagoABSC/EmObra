@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './Lojas.scss'
-import fotoLoja from '../imgs-fixas/parceiro-padrao.png'
+import fotoLoja from '/imgs-fixas/parceiro-padrao.png'
 
 import { Pagination } from 'swiper/modules';
 
