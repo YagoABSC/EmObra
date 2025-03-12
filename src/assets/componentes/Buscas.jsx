@@ -64,7 +64,7 @@ function Buscas() {
                             className={tipoServico === servico.id ? "ativo" : ""}
                         >
                             <img
-                                src={`/images/${servico.img_servico}`}
+                                src={`/imgs-fixas/${servico.img_servico}`}
                                 alt={servico.nome_servico}
                                 className="icone-servico"
                             />
