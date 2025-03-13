@@ -19,7 +19,8 @@ function Header() {
     return (
         <header>
             <nav>
-                <h1>EmObra</h1>
+                {/* <h1>EmObra</h1> */}
+                <img src="https://i.ibb.co/KVZRVhw/logov4-preto.png" alt="logo em obra" />
                 {isMobile ? (
 
                     <button className="btn-app">
