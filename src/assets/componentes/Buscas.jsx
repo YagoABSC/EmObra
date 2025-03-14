@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { FaUserTie, FaMapMarkerAlt, FaShieldAlt, FaTools, FaRedo } from "react-icons/fa";
-import InputMask from "react-input-mask";
-import { buscarPedreiros } from "../../api";
+import { FaHardHat, FaMapMarkerAlt, FaShieldAlt, FaTools, FaRedo, FaStar } from "react-icons/fa";
+import { IMaskInput } from "react-imask";
+import { buscarPedreiros, buscarTiposServico } from "../../api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import "./Buscas.scss";
-import { FaStar } from "react-icons/fa6";
 
 function Buscas() {
     const [tipoServico, setTipoServico] = useState("");
@@ -16,17 +15,15 @@ function Buscas() {
     const [pedreiros, setPedreiros] = useState([]);
     const [erro, setErro] = useState("");
     const [tiposServico, setTiposServico] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loadingTipos, setLoadingTipos] = useState(true);
+    const [isLoadingBusca, setIsLoadingBusca] = useState(false);
     const [buscaRealizada, setBuscaRealizada] = useState(false);
-    const [loadingTipos, setLoadingTipos] = useState(true); // Para o loading dos tipos de serviço
-    const [isLoadingBusca, setIsLoadingBusca] = useState(false); // Para o spinner de busca
 
     useEffect(() => {
         const fetchTiposServico = async () => {
             setLoadingTipos(true);
             try {
-                const response = await fetch("https://apiobra.vercel.app/tipos/servicos");
-                const data = await response.json();
+                const data = await buscarTiposServico();
                 setTiposServico(data);
             } catch (err) {
                 console.error("Erro ao buscar tipos de serviços:", err);
@@ -38,7 +35,7 @@ function Buscas() {
     }, []);
 
     const handleBuscar = async () => {
-        setIsLoadingBusca(true); // Ativa o spinner de busca
+        setIsLoadingBusca(true);
         try {
             setErro("");
             const data = await buscarPedreiros(tipoServico, cep);
@@ -47,13 +44,13 @@ function Buscas() {
         } catch (err) {
             setErro("Erro ao buscar pedreiros. Verifique os dados e tente novamente.");
         } finally {
-            setIsLoadingBusca(false); // Desativa o spinner de busca
+            setIsLoadingBusca(false);
         }
     };
 
     return (
         <section className="buscas">
-            <h1>Seu projeto merece os <span>melhores profissionais! <FaUserTie /></span></h1>
+            <h1>Sua Obra merece os <span>melhores profissionais! <FaHardHat /></span></h1>
             <h2>
                 Encontre <span><FaTools /> pedreiros qualificados</span> perto de você e transforme sua obra em
                 <span> realidade</span> com <span><FaShieldAlt /> segurança</span> e <span>eficiência</span>.
@@ -62,18 +59,16 @@ function Buscas() {
             {!buscaRealizada && (
                 <div className="busca-inputs">
                     <div className="buscador">
-                        <InputMask
-                            mask="99999-999"
+                        <IMaskInput
+                            mask="00000-000"
                             value={cep}
-                            onChange={(e) => setCep(e.target.value)}
+                            onAccept={(value) => setCep(value)}
                             placeholder="Informe seu CEP"
                         />
                         <button onClick={handleBuscar} disabled={isLoadingBusca}>
                             {isLoadingBusca ? "Carregando..." : "Buscar Pedreiros"}
                         </button>
                     </div>
-
-                    {/* Oculta a lista de tipos de serviços enquanto estiver carregando */}
                     {loadingTipos ? (
                         <div className="spinnerContainer">
                             <div className="spinner"></div>
@@ -123,8 +118,6 @@ function Buscas() {
                     <button className="refazer-busca" onClick={() => setBuscaRealizada(false)}>
                         <FaRedo /> Refazer Busca
                     </button>
-
-                    {/* Exibe os resultados após a busca */}
                     {pedreiros.length > 0 ? (
                         <Swiper
                             modules={[Navigation, Pagination]}

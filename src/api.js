@@ -19,3 +19,12 @@ export const buscarPedreiros = async (tipoServicoId, cepContratante) => {
     }
 };
 
+export const buscarTiposServico = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/tipos/servicos`);
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao buscar tipos de serviços:", error);
+        throw error;
+    }
+};
