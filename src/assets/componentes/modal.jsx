@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './modal.scss';
-import CadastroContratante from './cadastro';
 import Login from './login';
+import CadastroContratante from './cadastro';
 
 
 

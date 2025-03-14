@@ -26,9 +26,13 @@ const Login = () => {
         throw new Error(data.message || "Erro ao autenticar");
       }
 
+      // Armazenar os dados no localStorage
       localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.id);
       localStorage.setItem("userType", data.tipo);
+
+      // Adicionando o console.log para exibir o token
+      console.log("Token de login:", data.token);
 
       alert("Login bem-sucedido!");
       // Redirecionar para a página inicial ou dashboard
