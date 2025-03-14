@@ -10,7 +10,8 @@ import Lojas from './assets/componentes/Lojas'
 import Premium from './assets/componentes/Premium'
 import Instituicao from './assets/componentes/Instituicao'
 import Buscas from './assets/componentes/Buscas'
-
+import Postar from './assets/componentes/Postar'
+  
 function App() {
   const [count, setCount] = useState(0)
 
@@ -20,6 +21,7 @@ function App() {
       <main>
         <Banner />
         <Buscas/>
+        <Postar/>
         <Sobre />
         <Premium/>
         <Lojas />
