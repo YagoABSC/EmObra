@@ -10,7 +10,6 @@ import Lojas from './assets/componentes/Lojas'
 import Premium from './assets/componentes/Premium'
 import Instituicao from './assets/componentes/Instituicao'
 import Buscas from './assets/componentes/Buscas'
-import CadastroContratante from './assets/componentes/cadastro'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,7 +17,6 @@ function App() {
   return (
     <>
       <Header />
-      <CadastroContratante />
       <main>
         <Banner />
         <Buscas/>
