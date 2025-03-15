@@ -9,7 +9,7 @@ const useAuth = () => {
     useEffect(() => {
         const verificarAutenticacao = async () => {
             if (!token) {
-                navigate("/login");
+                navigate("/");
                 return;
             }
 
@@ -17,7 +17,7 @@ const useAuth = () => {
             const usuarioValido = await verificarToken();
             if (!usuarioValido) {
                 localStorage.removeItem("token");
-                navigate("/login");
+                navigate("/");
                 // return;
             }
         };

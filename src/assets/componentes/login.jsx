@@ -36,7 +36,7 @@ const Login = () => {
 
       alert("Login bem-sucedido!");
       // Redirecionar para a página inicial ou dashboard
-      window.location.href = "/dashboard";
+      window.location.href = "/";
     } catch (err) {
       setError(err.message);
     } finally {

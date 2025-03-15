@@ -28,3 +28,13 @@ export const buscarTiposServico = async () => {
         throw error;
     }
 };
+
+export const verificarToken = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/user/validar-token`);
+      return response.data;
+    } catch (error) {
+      console.error("Erro ao validar token ", error.response?.data || error.message);
+      return null
+    }
+  }
