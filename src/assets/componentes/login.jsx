@@ -8,7 +8,6 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError("");
 
     try {
@@ -26,21 +25,16 @@ const Login = () => {
         throw new Error(data.message || "Erro ao autenticar");
       }
 
-      // Armazenar os dados no localStorage
       localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.id);
       localStorage.setItem("userType", data.tipo);
 
-      // Adicionando o console.log para exibir o token
-      console.log("Token de login:", data.token);
-
       alert("Login bem-sucedido!");
       // Redirecionar para a página inicial ou dashboard
-      window.location.href = "/dashboard";
+      window.location.href = "/";
     } catch (err) {
-      setError(err.message);
+      setError(err.message); // Exibir mensagem de erro
     } finally {
-      setLoading(false);
     }
   };
 
@@ -48,7 +42,10 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <h2 className="login-title">Entrar</h2>
+        
+        {/* Exibe a mensagem de erro se houver */}
         {error && <p className="error-message">{error}</p>}
+        
         <form onSubmit={handleLogin}>
           <div className="input-group">
             <input
@@ -59,6 +56,7 @@ const Login = () => {
               required
             />
           </div>
+          
           <div className="input-group">
             <input
               type="password"
@@ -68,6 +66,7 @@ const Login = () => {
               required
             />
           </div>
+          
           <button type="submit" className="login-button" disabled={loading}>
             {loading ? "Carregando..." : "Entrar"}
           </button>
