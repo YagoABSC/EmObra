@@ -8,6 +8,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setError("");
 
     try {
@@ -31,23 +32,20 @@ const Login = () => {
 
       alert("Login bem-sucedido!");
       // Redirecionar para a página inicial ou dashboard
-      window.location.href = "/";
+      window.location.href = "/dashboard";
     } catch (err) {
-      setError(err.message); // Exibir mensagem de erro
+      setError(err.message);
     } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="login-container">
-      <div className="login-box">
         <h2 className="login-title">Entrar</h2>
-        
-        {/* Exibe a mensagem de erro se houver */}
         {error && <p className="error-message">{error}</p>}
-        
         <form onSubmit={handleLogin}>
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="text"
               value={identificador}
@@ -56,8 +54,7 @@ const Login = () => {
               required
             />
           </div>
-          
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="password"
               value={senha}
@@ -66,12 +63,11 @@ const Login = () => {
               required
             />
           </div>
-          
           <button type="submit" className="login-button" disabled={loading}>
             {loading ? "Carregando..." : "Entrar"}
           </button>
         </form>
-      </div>
+    
     </div>
   );
 };

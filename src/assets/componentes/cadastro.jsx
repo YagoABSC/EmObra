@@ -52,12 +52,11 @@ function CadastroContratante() {
 
   return (
     <div className="login-container">
-      <div className="login-box">
         <h2 className="login-title">Cadastro</h2>
         {erro && <p className="error-message">{erro}</p>}
         {mensagem && <p className="success-message">{mensagem}</p>}
         <form onSubmit={handleCadastrar}>
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="text"
               value={nome}
@@ -66,7 +65,7 @@ function CadastroContratante() {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="email"
               value={email}
@@ -75,7 +74,7 @@ function CadastroContratante() {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="password"
               value={senha}
@@ -84,7 +83,7 @@ function CadastroContratante() {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="text"
               value={cpf}
@@ -93,7 +92,7 @@ function CadastroContratante() {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="text"
               value={cep}
@@ -102,7 +101,7 @@ function CadastroContratante() {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="text"
               value={telefone}
@@ -115,7 +114,7 @@ function CadastroContratante() {
             {loading ? "Carregando..." : "Cadastrar"}
           </button>
         </form>
-      </div>
+    
     </div>
   );
 }
