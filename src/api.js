@@ -31,10 +31,20 @@ export const buscarTiposServico = async () => {
 
 export const verificarToken = async () => {
     try {
-      const response = await axios.get(`${API_URL}/user/validar-token`);
-      return response.data;
+        const response = await axios.get(`${API_URL}/user/validar-token`);
+        return response.data;
     } catch (error) {
-      console.error("Erro ao validar token ", error.response?.data || error.message);
-      return null
+        console.error("Erro ao validar token ", error.response?.data || error.message);
+        return null;
     }
-  }
+};
+
+export const postarServico = async (servico) => {
+    try {
+        const response = await axios.post(`${API_URL}/add/servico`, servico);
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao postar serviço:", error);
+        throw error;
+    }
+};

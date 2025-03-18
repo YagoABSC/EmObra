@@ -31,8 +31,8 @@ const Login = () => {
       localStorage.setItem("userType", data.tipo);
 
       alert("Login bem-sucedido!");
-      // Redirecionar para a página inicial ou dashboard
-      window.location.href = "/dashboard";
+      // Redirecionar para a página inicial ou 
+      window.location.href = "/";
     } catch (err) {
       setError(err.message);
     } finally {

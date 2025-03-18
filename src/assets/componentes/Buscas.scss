@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 .buscas {
+    font-family: "Poppins", sans-serif;
     text-align: center;
     padding: 40px 20px;
     background-color: #f8f8f8;
@@ -135,31 +138,37 @@
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
+        padding: 20px 0;
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     .pedreiro-card {
         background: #fff;
         border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         padding: 20px;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: transform 0.3s ease;
-        margin-bottom: 20px;
-        /* Espaçamento entre os cards */
-        max-width: 350px;
-        /* Limitar o tamanho máximo dos cards */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin: 0 10px; // Reduzi a margem entre os cards
+        width: 90%; // Ajustei a largura para ocupar mais espaço
+        max-width: 300px; // Limitei o tamanho máximo
 
         &:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         }
 
         .pedreiro-img {
             width: 80px;
-            /* Imagem do pedreiro menor */
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
@@ -169,10 +178,10 @@
 
         .pedreiro-info {
             h3 {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 font-weight: bold;
                 color: #333;
-                margin-bottom: 5px;
+                margin-bottom: 10px;
             }
 
             p {
@@ -181,6 +190,7 @@
                 margin: 5px 0;
             }
         }
+
     }
 
     .refazer-busca {
