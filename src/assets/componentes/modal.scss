@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Escurecer a área atrás do modal */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,170 +15,137 @@
 .modal {
   background-color: white;
   padding: 20px;
-  width: 400px;
+  width: 100%;
+  max-width: 350px;
   border-radius: 8px;
   position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombreamento mais forte */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 24px;
+  font-size: 30px;
   background: none;
   border: none;
-  color: #ff7a00; /* Cor do "X" */
+  color: #ff7a00;
   cursor: pointer;
   font-weight: bold;
   z-index: 2000;
-  transition: color 0.3s ease;
-}
-
-/* Estilo do botão "X" para fechar */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 30px; /* Aumentei o tamanho do "X" */
-  background: none;
-  border: none;
-  color: #ff7a00; /* Cor padrão do "X" */
-  cursor: pointer;
-  font-weight: bold;
-  z-index: 2000;
-  transition: transform 0.3s ease, color 0.3s ease; /* Transição suave */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .close-btn:hover {
-  color: #e66a00; /* Cor do "X" ao passar o mouse */
-  transform: scale(1.1); /* Efeito de aumento no "X" */
+  color: #e66a00;
+  transform: scale(1.1);
 }
 
 .close-btn:focus {
-  outline: none; /* Remove o contorno do foco */
+  outline: none;
 }
-
 
 .cadastro-title, .login-title {
-  color: #000; /* Cor do título */
+  color: #000;
   text-align: center;
   margin: 0;
-}
-
-/* Estilos dos Formulários (Login e Cadastro) */
-.main-cadastro-cad {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 10px auto;
-  max-width: 100%;
-  min-height: 100vh;
 }
 
 .login-box {
   background-color: white;
   padding: 20px;
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   border-radius: 8px;
   position: relative;
-  box-shadow: none; /* Removido o box-shadow */
+  box-shadow: none; 
+  border: none;
+  margin: 0 auto;
 }
 
 .login-title {
-  color: #000; /* Cor do título do login */
+  color: #000;
   text-align: center;
   margin: 0;
 }
 
-/* Estilo do input e efeitos */
-.input-group {
+.input-group-modal-cadastro {
   margin-bottom: 20px;
   position: relative;
 }
 
-.input-group input {
-  width: 100%;
+.input-group-modal-cadastro input {
+  width: 95%;
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 16px;
-  transition: border-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+  font-size: 14px;
+  transition: border-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Efeito quando o input recebe foco (clicado) */
-.input-group input:focus {
-  border-color: #ff7a00; /* Cor laranja no foco */
-  outline: none; /* Remove o contorno padrão do navegador */
-  transform: scale(1.05); /* Aumenta levemente o tamanho do input */
+.input-group-modal-cadastro input:focus {
+  border-color: #ff7a00;
+  outline: none;
+  transform: scale(1.05);
 }
 
-/* Efeito de hover nos inputs */
-.input-group input:hover {
-  border-color: #ff7a00; /* Cor laranja no hover */
+.input-group-modal-cadastro input:hover {
+  border-color: #ff7a00;
 }
 
-/* Estilo do placeholder */
-.input-group input::placeholder {
+.input-group-modal-cadastro input::placeholder {
   color: #aaa;
   font-weight: normal;
-  transition: all 0.3s ease; /* Transição suave */
+  transition: all 0.3s ease;
 }
 
-/* Estilo do label (descrição dentro do input) */
-.input-group label {
+.input-group-modal-cadastro label {
   position: absolute;
   top: 10px;
   left: 10px;
-  font-size: 16px;
+  font-size: 14px;
   color: #aaa;
-  pointer-events: none; /* Impede que o label atrapalhe a interação com o input */
-  transition: all 0.3s ease; /* Transição suave */
+  pointer-events: none;
+  transition: all 0.3s ease;
   background-color: white;
   padding: 0 5px;
 }
 
-/* Efeito de foco e hover no label (flutuar para cima dentro da linha) */
-.input-group input:focus + label,
-.input-group input:hover + label {
-  top: -12px; /* Faz o label subir para dentro da linha do input */
-  font-size: 12px; /* Diminui o tamanho do label */
-  color: #ff7a00; /* Cor laranja */
-  transition: all 0.3s ease; /* Transição suave */
+.input-group-modal-cadastro input:focus + label,
+.input-group-modal-cadastro input:hover + label {
+  top: -12px;
+  font-size: 12px;
+  color: #ff7a00;
+  transition: all 0.3s ease;
 }
 
-/* Estilo do botão */
 .login-button {
   width: 100%;
   padding: 10px;
-  background-color: #ff7a00; /* Cor de fundo laranja */
+  background-color: #ff7a00;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .login-button:hover {
-  background-color: #e66a00; /* Tom mais escuro de laranja no hover */
-  transform: scale(1.05); /* Leve aumento no tamanho do botão */
+  background-color: #e66a00;
+  transform: scale(1.05);
 }
 
 .login-button:focus {
-  outline: none; /* Remove o contorno do foco */
+  outline: none;
 }
 
-/* Estilo do botão sem borda */
 .toggle-btn {
   margin-top: 20px;
   background-color: transparent;
-  color: #ff7a00; /* Cor do texto */
+  color: #ff7a00;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -187,20 +154,19 @@
   display: block;
   width: 100%;
   text-align: center;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .toggle-btn:hover {
-  background-color: transparent; /* Manter fundo transparente */
-  color: #e66a00; /* Tom mais escuro de laranja no hover */
-  transform: scale(1.05); /* Leve aumento no tamanho do botão */
+  background-color: transparent;
+  color: #e66a00;
+  transform: scale(1.05);
 }
 
 .toggle-btn:focus {
-  outline: none; /* Remove o contorno do foco */
+  outline: none;
 }
 
-/* Estilo das mensagens de erro e sucesso */
 .error-message, .success-message {
   color: red;
   font-size: 14px;
@@ -210,4 +176,25 @@
 
 .success-message {
   color: green;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .modal {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .login-box {
+    padding: 15px;
+  }
+
+  .input-group-modal-cadastro input {
+    font-size: 12px;
+  }
+
+  .login-button, .toggle-btn {
+    font-size: 14px;
+    padding: 12px;
+  }
 }

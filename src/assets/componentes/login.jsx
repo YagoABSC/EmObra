@@ -26,16 +26,12 @@ const Login = () => {
         throw new Error(data.message || "Erro ao autenticar");
       }
 
-      // Armazenar os dados no localStorage
       localStorage.setItem("token", data.token);
       localStorage.setItem("userId", data.id);
       localStorage.setItem("userType", data.tipo);
 
-      // Adicionando o console.log para exibir o token
-      console.log("Token de login:", data.token);
-
       alert("Login bem-sucedido!");
-      // Redirecionar para a página inicial ou dashboard
+      // Redirecionar para a página inicial ou 
       window.location.href = "/";
     } catch (err) {
       setError(err.message);
@@ -46,11 +42,10 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="login-box">
         <h2 className="login-title">Entrar</h2>
         {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleLogin}>
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="text"
               value={identificador}
@@ -59,7 +54,7 @@ const Login = () => {
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input-group-modal-cadastro">
             <input
               type="password"
               value={senha}
@@ -72,7 +67,7 @@ const Login = () => {
             {loading ? "Carregando..." : "Entrar"}
           </button>
         </form>
-      </div>
+    
     </div>
   );
 };
