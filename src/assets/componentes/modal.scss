@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 /* Estilos do Modal */
 .modal-overlay {
   position: fixed;
@@ -5,6 +7,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  font-family: "Poppins", sans-serif;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
