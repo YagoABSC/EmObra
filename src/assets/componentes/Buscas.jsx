@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { FaHardHat, FaMapMarkerAlt, FaShieldAlt, FaTools, FaRedo, FaStar } from "react-icons/fa";
+import { 
+    FaHardHat, 
+    FaMapMarkerAlt, 
+    FaShieldAlt, 
+    FaTools, 
+    FaRedo, 
+    FaStar, 
+    FaSearch, 
+    FaPhone, 
+    FaWhatsapp 
+} from "react-icons/fa";
 import { IMaskInput } from "react-imask";
 import { buscarPedreiros, buscarTiposServico } from "../../api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "./Buscas.scss";
 
 function Buscas() {
@@ -18,15 +28,23 @@ function Buscas() {
     const [loadingTipos, setLoadingTipos] = useState(true);
     const [isLoadingBusca, setIsLoadingBusca] = useState(false);
     const [buscaRealizada, setBuscaRealizada] = useState(false);
+    
+    const token = localStorage.getItem("token"); // Checando se o token existe
+    const isLoggedIn = !!token; // Se existir o token, o usuário está logado
 
     useEffect(() => {
         const fetchTiposServico = async () => {
             setLoadingTipos(true);
             try {
                 const data = await buscarTiposServico();
-                setTiposServico(data);
+                if (Array.isArray(data)) {
+                    setTiposServico(data);
+                } else {
+                    setTiposServico([]);
+                }
             } catch (err) {
                 console.error("Erro ao buscar tipos de serviços:", err);
+                setTiposServico([]);
             } finally {
                 setLoadingTipos(false);
             }
@@ -35,6 +53,16 @@ function Buscas() {
     }, []);
 
     const handleBuscar = async () => {
+        if (!cep.replace(/[^0-9]/g, "").length) {
+            setErro("Por favor, informe um CEP válido.");
+            return;
+        }
+        
+        if (!tipoServico) {
+            setErro("Por favor, selecione um tipo de serviço.");
+            return;
+        }
+        
         setIsLoadingBusca(true);
         try {
             setErro("");
@@ -45,6 +73,12 @@ function Buscas() {
             setErro("Erro ao buscar pedreiros. Verifique os dados e tente novamente.");
         } finally {
             setIsLoadingBusca(false);
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleBuscar();
         }
     };
 
@@ -64,9 +98,16 @@ function Buscas() {
                             value={cep}
                             onAccept={(value) => setCep(value)}
                             placeholder="Informe seu CEP"
+                            onKeyDown={handleKeyDown}
                         />
                         <button onClick={handleBuscar} disabled={isLoadingBusca}>
-                            {isLoadingBusca ? "Carregando..." : "Buscar Pedreiros"}
+                            {isLoadingBusca ? (
+                                <>Carregando...</>
+                            ) : (
+                                <>
+                                    <FaSearch /> Buscar Pedreiros
+                                </>
+                            )}
                         </button>
                     </div>
                     {loadingTipos ? (
@@ -120,11 +161,16 @@ function Buscas() {
                     </button>
                     {pedreiros.length > 0 ? (
                         <Swiper
-                            modules={[Navigation, Pagination]}
+                            modules={[Navigation, Pagination, Autoplay]}
                             navigation
                             pagination={{ clickable: true }}
-                            spaceBetween={20}
+                            spaceBetween={30}
                             slidesPerView={1}
+                            autoplay={{
+                                delay: 5000,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true
+                            }}
                             breakpoints={{
                                 640: { slidesPerView: 1 },
                                 768: { slidesPerView: 2 },
@@ -143,14 +189,42 @@ function Buscas() {
                                         <div className="pedreiro-info">
                                             <h3>{pedreiro.nome}</h3>
                                             <p><FaMapMarkerAlt /> {pedreiro.distancia_km} km de distância</p>
-                                            <p><FaStar /> {pedreiro.media_avaliacoes || "Sem avaliações"}</p>
+                                            <p>
+                                                <FaStar /> 
+                                                {pedreiro.media_avaliacoes 
+                                                    ? `${pedreiro.media_avaliacoes} estrelas` 
+                                                    : "Sem avaliações"}
+                                            </p>
+                                            {isLoggedIn ? (
+                                                <>
+                                                    <p><FaPhone /> 
+                                                        <IMaskInput
+                                                            mask="(00) 00000-0000"
+                                                            value={pedreiro.telefone}
+                                                            disabled
+                                                            placeholder="Telefone"
+                                                            className="masked-input"
+                                                        />
+                                                    </p>
+                                                    <a 
+                                                        href={`https://wa.me/55${pedreiro.telefone.replace(/\D/g, "")}`} 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer"
+                                                        className="whatsapp-button"
+                                                    >
+                                                        <FaWhatsapp /> Chamar no WhatsApp
+                                                    </a>
+                                                </>
+                                            ) : (
+                                                <p>Faça login para ver os contatos.</p>
+                                            )}
                                         </div>
                                     </div>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
                     ) : (
-                        <p className="erro">Nenhum pedreiro encontrado para esse serviço.</p>
+                        <p className="erro">Nenhum pedreiro encontrado para esse serviço na sua região.</p>
                     )}
                 </>
             )}

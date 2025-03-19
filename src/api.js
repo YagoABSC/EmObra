@@ -31,7 +31,13 @@ export const buscarTiposServico = async () => {
 
 export const verificarToken = async () => {
     try {
-        const response = await axios.get(`${API_URL}/user/validar-token`);
+        const token = localStorage.getItem("token");
+        if (!token) return null;
+
+        const response = await axios.get(`${API_URL}/user/validar-token`, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+
         return response.data;
     } catch (error) {
         console.error("Erro ao validar token ", error.response?.data || error.message);
@@ -39,12 +45,28 @@ export const verificarToken = async () => {
     }
 };
 
+
 export const postarServico = async (servico) => {
     try {
-        const response = await axios.post(`${API_URL}/add/servico`, servico);
+        const token = localStorage.getItem("token");
+        if (!token) {
+            throw new Error("Usuário não autenticado");
+        }
+
+        const response = await axios.post(
+            `${API_URL}/add/servico`,
+            servico,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`, // Inclui o token no cabeçalho
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
         return response.data;
     } catch (error) {
-        console.error("Erro ao postar serviço:", error);
+        console.error("Erro ao postar serviço:", error.response?.data || error.message);
         throw error;
     }
 };

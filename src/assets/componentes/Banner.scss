@@ -1,6 +1,6 @@
 .banner-index {
   font-family: "Popins", sans-serif;
-    width: 100%;
+    // width: 100vw;
     height: 100%;
     min-height: 50vh;
     display: flex;
@@ -14,7 +14,7 @@
     border-bottom: 5px solid;
     border-image: linear-gradient(to right, #020411, #FE8813);
     border-image-slice: 1;
-  
+    
     h1 {
       font-size: clamp(16px, 5vw, 30px);
       margin: 0;
