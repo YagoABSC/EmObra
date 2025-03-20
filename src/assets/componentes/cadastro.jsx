@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import InputMask from "react-input-mask"; // Importando a biblioteca de máscaras
 
 const CadastroContratante = () => {
   const [nome, setNome] = useState("");
@@ -44,6 +43,29 @@ const CadastroContratante = () => {
     }
   };
 
+  const formatCpf = (value) => {
+    const onlyNumbers = value.replace(/\D/g, '');
+    const formatted = onlyNumbers
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    return formatted.length <= 14 ? formatted : formatted.substring(0, 14); 
+  };
+
+  const formatTelefone = (value) => {
+    const onlyNumbers = value.replace(/\D/g, '');
+    const formatted = onlyNumbers
+      .replace(/(\d{2})(\d)/, '($1) $2')
+      .replace(/(\d{5})(\d)/, '$1-$2');
+    return formatted.length <= 15 ? formatted : formatted.substring(0, 15); 
+  };
+
+  const formatCep = (value) => {
+    const onlyNumbers = value.replace(/\D/g, '');
+    const formatted = onlyNumbers.replace(/(\d{5})(\d)/, '$1-$2');
+    return formatted.length <= 9 ? formatted : formatted.substring(0, 9); 
+  };
+
   return (
     <div className="login-container">
       <h2 className="login-title">Cadastro</h2>
@@ -81,31 +103,34 @@ const CadastroContratante = () => {
           />
         </div>
         <div className="input-group-modal-cadastro">
-          <InputMask
-            mask="999.999.999-99"
+          <input
+            type="text"
             value={cpf}
-            onChange={(e) => setCpf(e.target.value)}
+            onChange={(e) => setCpf(formatCpf(e.target.value))}
             placeholder="CPF"
+            maxLength={14} 
             required
             className="border-0 outline-none shadow-none"
           />
         </div>
         <div className="input-group-modal-cadastro">
-          <InputMask
-            mask="99999-999"
+          <input
+            type="text"
             value={cep}
-            onChange={(e) => setCep(e.target.value)}
+            onChange={(e) => setCep(formatCep(e.target.value))}
             placeholder="CEP"
+            maxLength={9} // Limita o campo a 9 caracteres
             required
             className="border-0 outline-none shadow-none"
           />
         </div>
         <div className="input-group-modal-cadastro">
-          <InputMask
-            mask="(99) 99999-9999"
+          <input
+            type="text"
             value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
+            onChange={(e) => setTelefone(formatTelefone(e.target.value))}
             placeholder="Telefone"
+            maxLength={15} 
             required
             className="border-0 outline-none shadow-none"
           />
