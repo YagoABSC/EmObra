@@ -25,7 +25,7 @@ function App() {
         <Sobre />
         <Premium/>
         <Lojas />
-        <Instituicao />
+        {/* <Instituicao /> */}
       </main>
       <Footer />
     </>
