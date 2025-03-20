@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import InputMask from "react-input-mask"; // Importando a biblioteca de máscaras
 
 const CadastroContratante = () => {
   const [nome, setNome] = useState("");
@@ -12,9 +13,8 @@ const CadastroContratante = () => {
   const [erro, setErro] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_URL = 'https://apiobra.vercel.app'; 
+  const API_URL = 'https://apiobra.vercel.app';
 
- 
   const cadastrarContratante = async (nome, email, senha, cpf, cep, telefone) => {
     try {
       const response = await axios.post(`${API_URL}/add/contratante`, { nome, email, senha, cpf, cep, telefone, tipoUsuario: 'contratante' });
@@ -33,7 +33,7 @@ const CadastroContratante = () => {
 
     try {
       const response = await cadastrarContratante(nome, email, senha, cpf, cep, telefone);
-      
+
       if (response.message) {
         setMensagem(response.message);
       }
@@ -57,6 +57,7 @@ const CadastroContratante = () => {
             onChange={(e) => setNome(e.target.value)}
             placeholder="Nome"
             required
+            className="border-0 outline-none shadow-none"
           />
         </div>
         <div className="input-group-modal-cadastro">
@@ -66,6 +67,7 @@ const CadastroContratante = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             required
+            className="border-0 outline-none shadow-none"
           />
         </div>
         <div className="input-group-modal-cadastro">
@@ -75,33 +77,37 @@ const CadastroContratante = () => {
             onChange={(e) => setSenha(e.target.value)}
             placeholder="Senha"
             required
+            className="border-0 outline-none shadow-none"
           />
         </div>
         <div className="input-group-modal-cadastro">
-          <input
-            type="text"
+          <InputMask
+            mask="999.999.999-99"
             value={cpf}
             onChange={(e) => setCpf(e.target.value)}
             placeholder="CPF"
             required
+            className="border-0 outline-none shadow-none"
           />
         </div>
         <div className="input-group-modal-cadastro">
-          <input
-            type="text"
+          <InputMask
+            mask="99999-999"
             value={cep}
             onChange={(e) => setCep(e.target.value)}
             placeholder="CEP"
             required
+            className="border-0 outline-none shadow-none"
           />
         </div>
         <div className="input-group-modal-cadastro">
-          <input
-            type="text"
+          <InputMask
+            mask="(99) 99999-9999"
             value={telefone}
             onChange={(e) => setTelefone(e.target.value)}
             placeholder="Telefone"
             required
+            className="border-0 outline-none shadow-none"
           />
         </div>
         <button type="submit" className="login-button" disabled={loading}>
